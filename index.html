@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQUA REALM | Official Store & Aquatic Education</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #0d1b2a;
+            --secondary-color: #1b263b;
+            --accent-color: #00b4d8;
+            --text-dark: #2b2d42;
+            --text-light: #f8f9fa;
+            --bg-light: #f4f6f9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Top Announcement Bar */
+        .top-bar {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            text-align: center;
+            padding: 8px;
+            font-size: 0.85rem;
+        }
+
+        /* Navbar Professional dengan Background Gambar */
+        .navbar {
+            /* 1. Masukkan link gambar latar belakangmu di sini */
+            
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgb(255, 255, 255)), url("https://wmo.int/sites/default/files/styles/hero_image_desktop_1x/public/2023-01/Oceans.jpeg?h=a141e9ea&itok=_uqApKz7");
+            /* 2. Pengaturan agar gambar pas menutupi navbar */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            
+            /* 3. Style bawaan yang tetap dipertahankan */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        /* Menggunakan tombol/link biasa yang nanti dikontrol via target iframe atau onclick */
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Dropdown Menu Styling */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #ffffff;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            z-index: 1001;
+            padding: 8px 0;
+            border: 1px solid #edf2f4;
+        }
+
+        .dropdown-content a {
+            color: var(--text-dark);
+            padding: 10px 16px;
+            display: block;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--bg-light);
+            color: var(--accent-color);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Nav Icons (Search, Cart, Profile) yang bisa diklik */
+        .nav-icons {
+            display: flex;
+            gap: 1.2rem;
+            align-items: center;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .nav-icons a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-icons a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Area Container untuk Iframe */
+        .content-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* Styling Iframe Utama */
+        .frame-content {
+            width: 100%;
+            height: 700px;
+            border: none;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #8d99ae;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Announcement -->
+    <div class="top-bar">
+        <i class="fa-solid fa-truck-fast"></i> Platform Penghubung & Direktori Penjual Ikan Hias Terpercaya se-Indonesia
+    </div>
+
+    <!-- Header Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <i class="fa-solid fa-fish-fins"></i> AQUA<span>REALM</span>
+        </a>
+        
+        <ul class="nav-links">
+            <!-- 1. Home (Memuat halaman beranda/home ke iframe atau mereset) -->
+            <li><a href="home.html" target="myIframe">Home</a></li>
+            
+            <!-- 2. Katalog dan Pemesanan (Dropdown) -->
+            <li class="dropdown">
+                <a href="katalog.html" target="myIframe">Katalog & Pemesanan <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                <div class="dropdown-content">
+                    <a href="katalog.html" target="myIframe">Semua Produk</a>
+                    <a href="katalog.html#cupang" target="myIframe">Ikan Cupang</a>
+                    <a href="katalog.html#maskoki" target="myIframe">Mas Koki</a>
+                </div>
+            </li>
+
+            <!-- 3. Tentang Website -->
+            <li><a href="tentang.html" target="myIframe">Tentang Website</a></li>
+
+            <!-- 4. Fun Fact -->
+            <li><a href="funfact.html" target="myIframe">Fun Fact</a></li>
+        </ul>
+
+        <!-- Ikon Pojok Kanan Atas yang sekarang berfungsi via Iframe! -->
+        <div class="nav-icons">
+            <!-- Search Bar / Halaman Cari -->
+            <a href="search.html" target="myIframe" title="Pencarian Produk"><i class="fa-solid fa-magnifying-glass"></i></a>
+            <!-- Keranjang Belanja -->
+            <a href="keranjang.html" target="myIframe" title="Keranjang Belanja"><i class="fa-solid fa-cart-shopping"></i></a>
+            <!-- Profil Akun -->
+            <a href="profil.html" target="myIframe" title="Profil Pengguna"><i class="fa-regular fa-user"></i></a>
+        </div>
+    </nav>
+
+    <!-- Area Konten Utama Menggunakan Iframe -->
+    <div class="content-container">
+        <!-- 
+          Atribut 'name="myIframe"' sangat penting agar saat tag <a> di atas diklik 
+          dengan target="myIframe", halaman tujuannya akan tampil di dalam kotak ini.
+          Default awal memuat 'home.html' atau 'katalog.html' 
+        -->
+        <iframe src="home.html" name="myIframe" class="frame-content"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 AQUA REALM Indonesia. Tugas Proyek Informatika Kelas 11 SMA.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog - AQUA REALM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+        body { background-color: #f4f6f9; color: #2b2d42; padding: 20px; }
+        .section-header { text-align: center; margin-bottom: 30px; }
+        .section-header h2 { font-size: 1.8rem; color: #0d1b2a; }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s;
+        }
+        .product-card:hover { transform: translateY(-5px); }
+        .badge-official {
+            position: absolute; top: 12px; left: 12px;
+            background-color: #0d1b2a; color: white;
+            padding: 4px 10px; border-radius: 20px;
+            font-size: 0.7rem; font-weight: 600; z-index: 10;
+        }
+        .product-card a { text-decoration: none; color: inherit; }
+        .product-img-wrapper { width: 100%; height: 180px; overflow: hidden; }
+        .product-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        .product-details { padding: 15px; display: flex; flex-direction: column; flex-grow: 1; }
+        .product-category { font-size: 0.75rem; color: #8d99ae; text-transform: uppercase; font-weight: 600; }
+        .product-title { font-size: 1rem; font-weight: 600; color: #0d1b2a; margin: 5px 0; }
+        .rating { color: #ffb703; font-size: 0.8rem; margin-bottom: 10px; }
+        .product-bottom { margin-top: auto; display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid #edf2f4; }
+        .price { font-size: 1.1rem; font-weight: 700; color: #d90429; }
+        .btn-buy { background-color: #00b4d8; color: white; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+
+    <div class="section-header">
+        <h2>Katalog Ikan Hidup Resmi</h2>
+        <p style="color: #6c757d; font-size: 0.9rem;">Klik produk untuk bertransaksi via Marketplace Mitra Penjual</p>
+    </div>
+
+    <div class="product-grid">
+        <!-- Card 1 -->
+        <div class="product-card">
+            <span class="badge-official"><i class="fa-solid fa-circle-check"></i> Mitra</span>
+            <a href="https://www.tokopedia.com" target="_blank">
+                <div class="product-img-wrapper">
+                    <img src="https://mollyjaya.id/wp-content/uploads/2024/11/Cupang-Halfmoon-super-red.webp" alt="Cupang">
+                </div>
+                <div class="product-details">
+                    <span class="product-category">Anabantoid</span>
+                    <h3 class="product-title">Cupang Halfmoon Rosetail Super Red</h3>
+                    <div class="rating"><i class="fa-solid fa-star"></i> 5.0 (48 Ulasan)</div>
+                    <div class="product-bottom">
+                        <span class="price">Rp 85.000</span>
+                        <span class="btn-buy">Beli</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="product-card">
+            <span class="badge-official"><i class="fa-solid fa-circle-check"></i> Mitra</span>
+            <a href="https://www.tokopedia.com" target="_blank">
+                <div class="product-img-wrapper">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8OvYZ16Cp3bYr7DI9B4hpDk41kU9sthuMG5Lhqp2Qow&s" alt="Mas Koki">
+                </div>
+                <div class="product-details">
+                    <span class="product-category">Cyprinidae</span>
+                    <h3 class="product-title">Mas Koki Oranda Rose-Tail Grade A</h3>
+                    <div class="rating"><i class="fa-solid fa-star"></i> 4.8 (112 Ulasan)</div>
+                    <div class="product-bottom">
+                        <span class="price">Rp 120.000</span>
+                        <span class="btn-buy">Beli</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
