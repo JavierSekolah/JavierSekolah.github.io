@@ -201,4 +201,599 @@
         <span id="product-count" style="font-size:0.85rem; color: var(--text-muted);">Menampilkan semua produk</span>
     </div>
 
-    <!-- Quick Filter &
+    <!-- Quick Filter & Search Bar -->
+    <div class="filter-controls">
+        <input type="text" id="searchInput" placeholder="Cari nama atau ilmiah..." onkeyup="applyFilters()">
+        
+        <select id="filterCare" onchange="applyFilters()">
+            <option value="all">Semua Care Level</option>
+            <option value="easy">Easy (Pemula)</option>
+            <option value="moderate">Moderate (Menengah)</option>
+            <option value="expert">Expert (Ahli)</option>
+        </select>
+
+        <select id="filterReef" onchange="applyFilters()">
+            <option value="all">Semua Status Reef Safe</option>
+            <option value="yes">Reef Safe</option>
+            <option value="no">Not Reef Safe / Caution</option>
+        </select>
+
+        <select id="filterCategory" onchange="applyFilters()">
+            <option value="all">Semua Kategori</option>
+            <option value="fish">Ikan Air Laut (Marine Fish)</option>
+            <option value="coral">Terumbu Karang (Corals)</option>
+            <option value="invert">Invertebrata & Anemon</option>
+        </select>
+    </div>
+
+    <!-- 1. KATEGORI: IKAN AIR LAUT (10 Spesies) -->
+    <section class="category-section" id="fish-section">
+        <div class="category-title">
+            <i class="fa-solid fa-fish"></i>
+            <h3>Ikan Air Laut (Marine Fish)</h3>
+        </div>
+        <div class="product-grid" id="grid-fish">
+            
+            <div class="product-card" data-category="fish" data-care="easy" data-reef="yes" data-name="clownfish ocellaris amphiprion">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=500&q=80" class="product-img" alt="Ocellaris Clownfish">
+                <div class="product-info">
+                    <div class="product-name">Ocellaris Clownfish</div>
+                    <div class="scientific-name">Amphiprion ocellaris</div>
+                    <div class="badge-group">
+                        <span class="badge badge-easy">Easy</span>
+                        <span class="badge badge-reef">Reef Safe</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">Rp 85.000</div>
+                        <button class="btn-add"><i class="fa-solid fa-cart-plus"></i> Beli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="fish" data-care="moderate" data-reef="yes" data-name="yellow tang zebrasoma flavescens">
+                <img src="https://images.unsplash.com/photo-1534043464124-3be32fe000c9?w=500&q=80" class="product-img" alt="Yellow Tang">
+                <div class="product-info">
+                    <div class="product-name">Yellow Tang</div>
+                    <div class="scientific-name">Zebrasoma flavescens</div>
+                    <div class="badge-group">
+                        <span class="badge badge-moderate">Moderate</span>
+                        <span class="badge badge-reef">Reef Safe</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">Rp 650.000</div>
+                        <button class="btn-add"><i class="fa-solid fa-cart-plus"></i> Beli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="fish" data-care="easy" data-reef="yes" data-name="blue tang paracanthurus hepatus dory">
+                <img src="https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?w=500&q=80" class="product-img" alt="Blue Tang">
+                <div class="product-info">
+                    <div class="product-name">Blue Tang (Dory)</div>
+                    <div class="scientific-name">Paracanthurus hepatus</div>
+                    <div class="badge-group">
+                        <span class="badge badge-easy">Easy</span>
+                        <span class="badge badge-reef">Reef Safe</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">Rp 320.000</div>
+                        <button class="btn-add"><i class="fa-solid fa-cart-plus"></i> Beli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="fish" data-care="easy" data-reef="yes" data-name="royal gramma gramma loreto">
+                <img src="https://images.unsplash.com/photo-1535591273668-578e31182c4f?w=500&q=80" class="product-img" alt="Royal Gramma">
+                <div class="product-info">
+                    <div class="product-name">Royal Gramma Basslet</div>
+                    <div class="scientific-name">Gramma loreto</div>
+                    <div class="badge-group">
+                        <span class="badge badge-easy">Easy</span>
+                        <span class="badge badge-reef">Reef Safe</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">Rp 175.000</div>
+                        <button class="btn-add"><i class="fa-solid fa-cart-plus"></i> Beli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="fish" data-care="expert" data-reef="no" data-name="copperband butterflyfish chelmon rostratus">
+                <img src="https://images.unsplash.com/photo-1582967788606-a171c1080cb0?w=500&q=80" class="product-img" alt="Copperband Butterflyfish">
+                <div class="product-info">
+                    <div class="product-name">Copperband Butterfly</div>
+                    <div class="scientific-name">Chelmon rostratus</div>
+                    <div class="badge-group">
+                        <span class="badge badge-expert">Expert</span>
+                        <span class="badge" style="background:#ef4444;">Not Reef Safe</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">Rp 280.000</div>
+                        <button class="btn-add"><i class="fa-solid fa-cart-plus"></i> Beli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="fish" data-care="easy" data-reef="yes" data-name="green chromis chromis viridis">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=500&q=80" class="product-img" alt="Green Chromis">
+                <div class="product-info">
+                    <div class="product-name">Blue Green Chromis</div>
+                    <div class="scientific-name">Chromis viridis</div>
+                    <div class="badge-group">
+                        <span class="badge badge-easy">Easy</span>
+                        <span class="badge badge-reef">Reef Safe</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">Rp 35.000</div>
+                        <button class="btn-add"><i class="fa-solid fa-cart-plus"></i> Beli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="fish" data-care="easy" data-reef="yes" data-name="firefish goby nemateleotris magnifica">
+                <img src="https://images.unsplash.com/photo-1520301255226-bf5f144451c1?w=500&q=80" class="product-img" alt="Firefish Goby">
+                <div class="product-info">
+                    <div class="product-name">Firefish Goby</div>
+                    <div class="scientific-name">Nemateleotris magnifica</div>
+                    <div class="badge-group">
+                        <span class="badge badge-easy">Easy</span>
+                        <span class="badge badge-reef">Reef Safe</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">Rp 95.000</div>
+                        <button class="btn-add"><i class="fa-solid fa-cart-plus"></i> Beli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="fish" data-care="moderate" data-reef="no" data-name="flame angelfish centropyge loricula">
+                <img src="https://images.unsplash.com/photo-1534043464124-3be32fe000c9?w=500&q=80" class="product-img" alt="Flame Angelfish">
+                <div class="product-info">
+                    <div class="product-name">Flame Angelfish</div>
+                    <div class="scientific-name">Centropyge loricula</div>
+                    <div class="badge-group">
+                        <span class="badge badge-moderate">Moderate</span>
+                        <span class="badge" style="background:#eab308;">Caution</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">Rp 450.000</div>
+                        <button class="btn-add"><i class="fa-solid fa-cart-plus"></i> Beli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="fish" data-care="easy" data-reef="yes" data-name="banggai cardinalfish pterapogon kauderni">
+                <img src="https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?w=500&q=80" class="product-img" alt="Banggai Cardinalfish">
+                <div class="product-info">
+                    <div class="product-name">Banggai Cardinalfish</div>
+                    <div class="scientific-name">Pterapogon kauderni</div>
+                    <div class="badge-group">
+                        <span class="badge badge-easy">Easy</span>
+                        <span class="badge badge-reef">Reef Safe</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">Rp 60.000</div>
+                        <button class="btn-add"><i class="fa-solid fa-cart-plus"></i> Beli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="fish" data-care="expert" data-reef="yes" data-name="mandarin dragonet synchiropus splendidus">
+                <img src="https://images.unsplash.com/photo-1535591273668-578e31182c4f?w=500&q=80" class="product-img" alt="Mandarin Dragonet">
+                <div class="product-info">
+                    <div class="product-name">Mandarin Dragonet</div>
+                    <div class="scientific-name">Synchiropus splendidus</div>
+                    <div class="badge-group">
+                        <span class="badge badge-expert">Expert</span>
+                        <span class="badge badge-reef">Reef Safe</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">Rp 190.000</div>
+                        <button class="btn-add"><i class="fa-solid fa-cart-plus"></i> Beli</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 2. KATEGORI: TERUMBU KARANG / CORALS (10 Spesies) -->
+    <section class="category-section" id="coral-section">
+        <div class="category-title">
+            <i class="fa-solid fa-gem"></i>
+            <h3>Terumbu Karang (Corals - LPS, SPS & Softies)</h3>
+        </div>
+        <div class="product-grid" id="grid-coral">
+
+            <div class="product-card" data-category="coral" data-care="easy" data-reef="yes" data-name="zoanthids button polyps soft coral">
+                <img src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=500&q=80" class="product-img" alt="Zoanthid Polyp">
+                <div class="product-info">
+                    <div class="product-name">Zoanthid Button Polyps</div>
+                    <div class="scientific-name">Zoanthus sp.</div>
+                    <div class="badge-group">
+                        <span class="badge badge-easy">Easy</span>
+                        <span class="badge badge-reef">Soft Coral</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">Rp 120.000</div>
+                        <button class="btn-add"><i class="fa-solid fa-cart-plus"></i> Beli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="coral" data-care="moderate" data-reef="yes" data-name="hammer coral lps euphyllia">
+                <img src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=500&q=80" class="product-img" alt="Hammer Coral">
+                <div class="product-info">
+                    <div class="product-name">Green Hammer Coral</div>
+                    <div class="scientific-name">Euphyllia ancora</div>
+                    <div class="badge-group">
+                        <span class="badge badge-moderate">Moderate</span>
+                        <span class="badge badge-reef">LPS Coral</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">Rp 350.000</div>
+                        <button class="btn-add"><i class="fa-solid fa-cart-plus"></i> Beli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="coral" data-care="expert" data-reef="yes" data-name="acropora sps staghorn coral">
+                <img src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=500&q=80" class="product-img" alt="Acropora Coral">
+                <div class="product-info">
+                    <div class="product-name">Blue Acropora Staghorn</div>
+                    <div class="scientific-name">Acropora formosa</div>
+                    <div class="badge-group">
+                        <span class="badge badge-expert">Expert</span>
+                        <span class="badge badge-reef">SPS Coral</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">Rp 500.000</div>
+                        <button class="btn-add"><i class="fa-solid fa-cart-plus"></i> Beli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="coral" data-care="easy" data-reef="yes" data-name="green star polyps gsp soft coral">
+                <img src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=500&q=80" class="product-img" alt="Green Star Polyps">
+                <div class="product-info">
+                    <div class="product-name">Green Star Polyps (GSP)</div>
+                    <div class="scientific-name">Pachyclavularia violacea</div>
+                    <div class="badge-group">
+                        <span class="badge badge-easy">Easy</span>
+                        <span class="badge badge-reef">Soft Coral</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">Rp 85.000</div>
+                        <button class="btn-add"><i class="fa-solid fa-cart-plus"></i> Beli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="coral" data-care="moderate" data-reef="yes" data-name="torch coral euphyllia glabrescens">
+                <img src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=500&q=80" class="product-img" alt="Torch Coral">
+                <div class="product-info">
+                    <div class="product-name">Indo Gold Torch Coral</div>
+                    <div class="scientific-name">Euphyllia glabrescens</div>
+                    <div class="badge-group">
+                        <span class="badge badge-moderate">Moderate</span>
+                        <span class="badge badge-reef">LPS Coral</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">Rp 850.000</div>
+                        <button class="btn-add"><i class="fa-solid fa-cart-plus"></i> Beli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="coral" data-care="easy" data-reef="yes" data-name="mushroom coral ricordea yuma soft coral">
+                <img src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=500&q=80" class="product-img" alt="Ricordea Mushroom">
+                <div class="product-info">
+                    <div class="product-name">Ricordea Yuma Mushroom</div>
+                    <div class="scientific-name">Ricordea yuma</div>
+                    <div class="badge-group">
+                        <span class="badge badge-easy">Easy</span>
+                        <span class="badge badge-reef">Soft Coral</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">Rp 150.000</div>
+                        <button class="btn-add"><i class="fa-solid fa-cart-plus"></i> Beli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="coral" data-care="moderate" data-reef="yes" data-name="brain coral favia lps">
+                <img src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=500&q=80" class="product-img" alt="Brain Coral">
+                <div class="product-info">
+                    <div class="product-name">Pineapple Brain Coral</div>
+                    <div class="scientific-name">Favia sp.</div>
+                    <div class="badge-group">
+                        <span class="badge badge-moderate">Moderate</span>
+                        <span class="badge badge-reef">LPS Coral</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">Rp 275.000</div>
+                        <button class="btn-add"><i class="fa-solid fa-cart-plus"></i> Beli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="coral" data-care="easy" data-reef="yes" data-name="pulsing xenia soft coral">
+                <img src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=500&q=80" class="product-img" alt="Pulsing Xenia">
+                <div class="product-info">
+                    <div class="product-name">Pulsing Xenia Coral</div>
+                    <div class="scientific-name">Xenia elongata</div>
+                    <div class="badge-group">
+                        <span class="badge badge-easy">Easy</span>
+                        <span class="badge badge-reef">Soft Coral</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">Rp 95.000</div>
+                        <button class="btn-add"><i class="fa-solid fa-cart-plus"></i> Beli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="coral" data-care="moderate" data-reef="yes" data-name="duncan coral duncanopsammia lps">
+                <img src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=500&q=80" class="product-img" alt="Duncan Coral">
+                <div class="product-info">
+                    <div class="product-name">Duncan Coral (Whiskers)</div>
+                    <div class="scientific-name">Duncanopsammia axifuga</div>
+                    <div class="badge-group">
+                        <span class="badge badge-moderate">Moderate</span>
+                        <span class="badge badge-reef">LPS Coral</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">Rp 220.000</div>
+                        <button class="btn-add"><i class="fa-solid fa-cart-plus"></i> Beli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="coral" data-care="expert" data-reef="yes" data-name="montipora capricornis sps coral">
+                <img src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=500&q=80" class="product-img" alt="Montipora Coral">
+                <div class="product-info">
+                    <div class="product-name">Red Montipora Cap</div>
+                    <div class="scientific-name">Montipora capricornis</div>
+                    <div class="badge-group">
+                        <span class="badge badge-expert">Expert</span>
+                        <span class="badge badge-reef">SPS Coral</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">Rp 310.000</div>
+                        <button class="btn-add"><i class="fa-solid fa-cart-plus"></i> Beli</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 3. KATEGORI: INVERTEBRATA & ANEMON (10 Spesies) -->
+    <section class="category-section" id="invert-section">
+        <div class="category-title">
+            <i class="fa-solid fa-shrimp"></i>
+            <h3>Invertebrata & Anemon Laut (AquaMarindo Reference)</h3>
+        </div>
+        <div class="product-grid" id="grid-invert">
+
+            <div class="product-card" data-category="invert" data-care="moderate" data-reef="yes" data-name="bubble tip anemone bta entacmaea quadricolor">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=500&q=80" class="product-img" alt="Bubble Tip Anemone">
+                <div class="product-info">
+                    <div class="product-name">Rose Bubble Tip Anemone</div>
+                    <div class="scientific-name">Entacmaea quadricolor</div>
+                    <div class="badge-group">
+                        <span class="badge badge-moderate">Moderate</span>
+                        <span class="badge badge-reef">Host Anemone</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">Rp 380.000</div>
+                        <button class="btn-add"><i class="fa-solid fa-cart-plus"></i> Beli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="invert" data-care="expert" data-reef="yes" data-name="red carpet anemone stichodactyla haddoni">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=500&q=80" class="product-img" alt="Red Carpet Anemone">
+                <div class="product-info">
+                    <div class="product-name">Red Haddoni Carpet Anemone</div>
+                    <div class="scientific-name">Stichodactyla haddoni</div>
+                    <div class="badge-group">
+                        <span class="badge badge-expert">Expert</span>
+                        <span class="badge badge-reef">Host Anemone</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">Rp 1.250.000</div>
+                        <button class="btn-add"><i class="fa-solid fa-cart-plus"></i> Beli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="invert" data-care="easy" data-reef="yes" data-name="cleaner shrimp lysmata amboinensis">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=500&q=80" class="product-img" alt="Skunk Cleaner Shrimp">
+                <div class="product-info">
+                    <div class="product-name">Skunk Cleaner Shrimp</div>
+                    <div class="scientific-name">Lysmata amboinensis</div>
+                    <div class="badge-group">
+                        <span class="badge badge-easy">Easy</span>
+                        <span class="badge badge-reef">Reef Safe</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">Rp 75.000</div>
+                        <button class="btn-add"><i class="fa-solid fa-cart-plus"></i> Beli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="invert" data-care="easy" data-reef="yes" data-name="fire shrimp lysmata debelius">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=500&q=80" class="product-img" alt="Blood Red Fire Shrimp">
+                <div class="product-info">
+                    <div class="product-name">Blood Red Fire Shrimp</div>
+                    <div class="scientific-name">Lysmata debelius</div>
+                    <div class="badge-group">
+                        <span class="badge badge-easy">Easy</span>
+                        <span class="badge badge-reef">Reef Safe</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">Rp 140.000</div>
+                        <button class="btn-add"><i class="fa-solid fa-cart-plus"></i> Beli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="invert" data-care="easy" data-reef="yes" data-name="blue leg hermit crab clibanarius tricolor">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=500&q=80" class="product-img" alt="Blue Leg Hermit Crab">
+                <div class="product-info">
+                    <div class="product-name">Blue Leg Hermit Crab</div>
+                    <div class="scientific-name">Clibanarius tricolor</div>
+                    <div class="badge-group">
+                        <span class="badge badge-easy">Easy</span>
+                        <span class="badge badge-reef">Cleanup Crew</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">Rp 25.000</div>
+                        <button class="btn-add"><i class="fa-solid fa-cart-plus"></i> Beli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="invert" data-care="easy" data-reef="yes" data-name="turbo snail trochus snail cleanup crew">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=500&q=80" class="product-img" alt="Turbo Snail">
+                <div class="product-info">
+                    <div class="product-name">Turbo Snail Algae Eater</div>
+                    <div class="scientific-name">Turbo fluctuosus</div>
+                    <div class="badge-group">
+                        <span class="badge badge-easy">Easy</span>
+                        <span class="badge badge-reef">Cleanup Crew</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">Rp 15.000</div>
+                        <button class="btn-add"><i class="fa-solid fa-cart-plus"></i> Beli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="invert" data-care="moderate" data-reef="yes" data-name="maxima clam tridacna maxima giant clam">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=500&q=80" class="product-img" alt="Maxima Clam">
+                <div class="product-info">
+                    <div class="product-name">Ultra Blue Maxima Clam</div>
+                    <div class="scientific-name">Tridacna maxima</div>
+                    <div class="badge-group">
+                        <span class="badge badge-moderate">Moderate</span>
+                        <span class="badge badge-reef">Reef Safe</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">Rp 650.000</div>
+                        <button class="btn-add"><i class="fa-solid fa-cart-plus"></i> Beli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="invert" data-care="moderate" data-reef="yes" data-name="magnificent sea anemone heteractis magnifica">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=500&q=80" class="product-img" alt="Magnificent Anemone">
+                <div class="product-info">
+                    <div class="product-name">Ritteri / Magnificent Anemone</div>
+                    <div class="scientific-name">Heteractis magnifica</div>
+                    <div class="badge-group">
+                        <span class="badge badge-expert">Expert</span>
+                        <span class="badge badge-reef">Host Anemone</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">Rp 420.000</div>
+                        <button class="btn-add"><i class="fa-solid fa-cart-plus"></i> Beli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="invert" data-care="easy" data-reef="yes" data-name="emerald crab mithraculus sculptus">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=500&q=80" class="product-img" alt="Emerald Crab">
+                <div class="product-info">
+                    <div class="product-name">Emerald Crab (Bubble Algae)</div>
+                    <div class="scientific-name">Mithraculus sculptus</div>
+                    <div class="badge-group">
+                        <span class="badge badge-easy">Easy</span>
+                        <span class="badge badge-reef">Cleanup Crew</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">Rp 65.000</div>
+                        <button class="btn-add"><i class="fa-solid fa-cart-plus"></i> Beli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="invert" data-care="moderate" data-reef="yes" data-name="fromia sea star red starfish">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=500&q=80" class="product-img" alt="Red Fromia Starfish">
+                <div class="product-info">
+                    <div class="product-name">Red Fromia Starfish</div>
+                    <div class="scientific-name">Fromia milleporella</div>
+                    <div class="badge-group">
+                        <span class="badge badge-moderate">Moderate</span>
+                        <span class="badge badge-reef">Reef Safe</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">Rp 110.000</div>
+                        <button class="btn-add"><i class="fa-solid fa-cart-plus"></i> Beli</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SCRIPT FILTER REAL-TIME -->
+    <script>
+        function applyFilters() {
+            const searchValue = document.getElementById('searchInput').value.toLowerCase();
+            const careValue = document.getElementById('filterCare').value;
+            const reefValue = document.getElementById('filterReef').value;
+            const catValue = document.getElementById('filterCategory').value;
+
+            const cards = document.querySelectorAll('.product-card');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const name = card.getAttribute('data-name');
+                const care = card.getAttribute('data-care');
+                const reef = card.getAttribute('data-reef');
+                const cat = card.getAttribute('data-category');
+
+                const matchesSearch = name.includes(searchValue);
+                const matchesCare = (careValue === 'all') || (care === careValue);
+                const matchesReef = (reefValue === 'all') || (reef === reefValue);
+                const matchesCat = (catValue === 'all') || (cat === catValue);
+
+                if (matchesSearch && matchesCare && matchesReef && matchesCat) {
+                    card.style.display = "flex";
+                    visibleCount++;
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            // Sembunyikan section kategori jika semua produknya tersembunyi
+            ['fish', 'coral', 'invert'].forEach(cat => {
+                const section = document.getElementById(cat + '-section');
+                const visibleInCat = section.querySelectorAll(`.product-card[style*="display: flex"]`).length;
+                if (catValue !== 'all' && catValue !== cat) {
+                    section.style.display = 'none';
+                } else if (visibleInCat === 0 && (searchValue !== '' || careValue !== 'all' || reefValue !== 'all')) {
+                    section.style.display = 'none';
+                } else {
+                    section.style.display = 'block';
+                }
+            });
+
+            document.getElementById('product-count').textContent = `Menampilkan ${visibleCount} produk biota laut`;
+        }
+
+        // Jalankan pencarian otomatis jika URL membawa parameter query search (?q=...)
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const query = urlParams.get('q');
+            if (query) {
+                document.getElementById('searchInput').value = query;
+                applyFilters();
+            }
+        });
+    </script>
+</body>
+</html>
