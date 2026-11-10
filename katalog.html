@@ -3,95 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katalog - AQUA REALM</title>
+    <title>Katalog Biota Laut | AQUA REALM</title>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
-        body { background-color: #f4f6f9; color: #2b2d42; padding: 20px; }
-        .section-header { text-align: center; margin-bottom: 30px; }
-        .section-header h2 { font-size: 1.8rem; color: #0d1b2a; }
-        
+        :root {
+            --primary-navy: #002b49;
+            --ocean-blue: #0077b6;
+            --accent-cyan: #00b4d8;
+            --light-bg: #f4f6f9;
+            --border-color: #e2e8f0;
+            --text-dark: #1d2d35;
+            --text-muted: #64748b;
+            --badge-easy: #22c55e;
+            --badge-mod: #eab308;
+            --badge-exp: #ef4444;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: var(--text-dark);
+            padding: 20px;
+        }
+
+        .header-title {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-title h2 {
+            color: var(--primary-navy);
+            font-size: 1.5rem;
+        }
+
+        /* Controls / Filter Bar Lokal */
+        .filter-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+            background: var(--light-bg);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .filter-controls select, .filter-controls input {
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            outline: none;
+            font-size: 0.85rem;
+        }
+
+        /* Section Category Titles */
+        .category-section {
+            margin-bottom: 40px;
+        }
+
+        .category-title {
+            font-size: 1.2rem;
+            color: var(--primary-navy);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Product Grid */
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
             gap: 20px;
         }
+
+        /* Product Card Ala LiveAquaria */
         .product-card {
-            background: white;
-            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            position: relative;
+            background: #fff;
+            transition: transform 0.2s, box-shadow 0.2s;
             display: flex;
             flex-direction: column;
-            transition: transform 0.3s;
+            justify-content: space-between;
         }
-        .product-card:hover { transform: translateY(-5px); }
-        .badge-official {
-            position: absolute; top: 12px; left: 12px;
-            background-color: #0d1b2a; color: white;
-            padding: 4px 10px; border-radius: 20px;
-            font-size: 0.7rem; font-weight: 600; z-index: 10;
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
         }
-        .product-card a { text-decoration: none; color: inherit; }
-        .product-img-wrapper { width: 100%; height: 180px; overflow: hidden; }
-        .product-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
-        .product-details { padding: 15px; display: flex; flex-direction: column; flex-grow: 1; }
-        .product-category { font-size: 0.75rem; color: #8d99ae; text-transform: uppercase; font-weight: 600; }
-        .product-title { font-size: 1rem; font-weight: 600; color: #0d1b2a; margin: 5px 0; }
-        .rating { color: #ffb703; font-size: 0.8rem; margin-bottom: 10px; }
-        .product-bottom { margin-top: auto; display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid #edf2f4; }
-        .price { font-size: 1.1rem; font-weight: 700; color: #d90429; }
-        .btn-buy { background-color: #00b4d8; color: white; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; }
+
+        .product-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            background: #e2e8f0;
+        }
+
+        .product-info {
+            padding: 12px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+            margin-bottom: 2px;
+        }
+
+        .scientific-name {
+            font-size: 0.78rem;
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .badge-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-bottom: 10px;
+        }
+
+        .badge {
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        .badge-easy { background-color: var(--badge-easy); }
+        .badge-moderate { background-color: var(--badge-mod); }
+        .badge-expert { background-color: var(--badge-exp); }
+        .badge-reef { background-color: var(--ocean-blue); }
+
+        .price-row {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 8px;
+            border-top: 1px dashed var(--border-color);
+        }
+
+        .price {
+            font-weight: 700;
+            color: var(--primary-navy);
+            font-size: 0.95rem;
+        }
+
+        .btn-add {
+            background-color: var(--ocean-blue);
+            color: #fff;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: background 0.2s;
+        }
+
+        .btn-add:hover {
+            background-color: var(--primary-navy);
+        }
+
+        .no-result {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
 
-    <div class="section-header">
-        <h2>Katalog Ikan Hidup Resmi</h2>
-        <p style="color: #6c757d; font-size: 0.9rem;">Klik produk untuk bertransaksi via Marketplace Mitra Penjual</p>
+    <div class="header-title">
+        <h2>Katalog Biota Laut & Reef</h2>
+        <span id="product-count" style="font-size:0.85rem; color: var(--text-muted);">Menampilkan semua produk</span>
     </div>
 
-    <div class="product-grid">
-        <!-- Card 1 -->
-        <div class="product-card">
-            <span class="badge-official"><i class="fa-solid fa-circle-check"></i> Mitra</span>
-            <a href="https://www.tokopedia.com" target="_blank">
-                <div class="product-img-wrapper">
-                    <img src="https://mollyjaya.id/wp-content/uploads/2024/11/Cupang-Halfmoon-super-red.webp" alt="Cupang">
-                </div>
-                <div class="product-details">
-                    <span class="product-category">Anabantoid</span>
-                    <h3 class="product-title">Cupang Halfmoon Rosetail Super Red</h3>
-                    <div class="rating"><i class="fa-solid fa-star"></i> 5.0 (48 Ulasan)</div>
-                    <div class="product-bottom">
-                        <span class="price">Rp 85.000</span>
-                        <span class="btn-buy">Beli</span>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="product-card">
-            <span class="badge-official"><i class="fa-solid fa-circle-check"></i> Mitra</span>
-            <a href="https://www.tokopedia.com" target="_blank">
-                <div class="product-img-wrapper">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8OvYZ16Cp3bYr7DI9B4hpDk41kU9sthuMG5Lhqp2Qow&s" alt="Mas Koki">
-                </div>
-                <div class="product-details">
-                    <span class="product-category">Cyprinidae</span>
-                    <h3 class="product-title">Mas Koki Oranda Rose-Tail Grade A</h3>
-                    <div class="rating"><i class="fa-solid fa-star"></i> 4.8 (112 Ulasan)</div>
-                    <div class="product-bottom">
-                        <span class="price">Rp 120.000</span>
-                        <span class="btn-buy">Beli</span>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
-
-</body>
-</html>
+    <!-- Quick Filter &
