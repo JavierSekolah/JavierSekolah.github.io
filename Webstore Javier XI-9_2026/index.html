@@ -200,9 +200,9 @@
             <li class="dropdown">
                 <a href="katalog.html" target="myIframe">Katalog & Pemesanan <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></a>
                 <div class="dropdown-content">
-                    <a href="katalog.html" target="myIframe">Semua Produk</a>
-                    <a href="katalog.html#cupang" target="myIframe">Ikan Cupang</a>
-                    <a href="katalog.html#maskoki" target="myIframe">Mas Koki</a>
+                    <li><a href="katalog.html#fish" target="myIframe">Ikan Laut</a></li>
+                    <li><a href="katalog.html#coral" target="myIframe">Terumbu Karang</a></li>
+                    <li><a href="katalog.html#invert" target="myIframe">Invertebrata</a></li>
                 </div>
             </li>
 
@@ -239,5 +239,21 @@
         <p>&copy; 2026 AQUA REALM Indonesia. Tugas Proyek Informatika Kelas 11 SMA.</p>
     </footer>
 
+    <script>
+    window.addEventListener('message', (event) => {
+        if (event.data && event.data.activeSection) {
+            const activeId = event.data.activeSection;
+            document.querySelectorAll('.nav-links a').forEach(a => {
+                a.style.color = '';
+                a.style.fontWeight = '500';
+                if (a.getAttribute('href') && a.getAttribute('href').includes('#' + activeId)) {
+                    a.style.color = '#00b4d8';
+                    a.style.fontWeight = '700';
+                }
+            });
+        }
+    });
+</script>
+    
 </body>
 </html>
