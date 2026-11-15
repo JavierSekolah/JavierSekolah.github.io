@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AQUA REALM | Marine Fish & Reef Store</title>
+    <title>AQUA REALM | Marine Fish & Reef Store (Proyek Kelas 11 SMA)</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -42,6 +42,8 @@
             justify-content: space-between;
             align-items: center;
             font-size: 0.8rem;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .top-bar-info span {
@@ -54,6 +56,10 @@
             margin-left: 15px;
         }
 
+        .top-bar-links a:hover {
+            color: var(--accent-cyan);
+        }
+
         /* 2. Main Header (Logo, Search, Cart) */
         .main-header {
             background: #fff;
@@ -63,10 +69,12 @@
             justify-content: space-between;
             gap: 20px;
             border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
         }
 
         .logo {
-            font-size: 1.6rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary-navy);
             text-decoration: none;
@@ -77,6 +85,7 @@
 
         .logo span {
             color: var(--ocean-blue);
+            font-family: 'Poppins', sans-serif;
         }
 
         /* Search Bar Ala E-commerce */
@@ -126,6 +135,10 @@
             font-weight: 500;
         }
 
+        .action-item:hover {
+            color: var(--ocean-blue);
+        }
+
         .action-item i {
             font-size: 1.3rem;
             color: var(--ocean-blue);
@@ -135,12 +148,16 @@
         .nav-bar {
             background-color: var(--primary-navy);
             padding: 0 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 1rem;
+            gap: 0.5rem;
+            flex-wrap: wrap;
         }
 
         .nav-links > li {
@@ -154,7 +171,7 @@
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
-            transition: background 0.2s;
+            transition: background 0.2s, color 0.2s;
         }
 
         .nav-links > li:hover > a {
@@ -168,7 +185,7 @@
             top: 100%;
             left: 0;
             background: #fff;
-            min-width: 220px;
+            min-width: 230px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             z-index: 100;
             list-style: none;
@@ -235,8 +252,24 @@
             cursor: pointer;
         }
 
-        .filter-group input[type="checkbox"] {
+        .filter-group input[type="radio"] {
             margin-right: 6px;
+        }
+
+        .btn-reset-filter {
+            width: 100%;
+            padding: 8px;
+            background: var(--light-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: var(--primary-navy);
+            font-weight: 500;
+        }
+
+        .btn-reset-filter:hover {
+            background: #e2e8f0;
         }
 
         /* Area Iframe Main Window */
@@ -246,7 +279,7 @@
 
         .frame-content {
             width: 100%;
-            min-height: 800px;
+            height: 850px;
             border: 1px solid var(--border-color);
             background: #fff;
             border-radius: 6px;
@@ -262,7 +295,7 @@
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 30px;
             max-width: 1350px;
             margin: 0 auto 30px;
@@ -288,11 +321,24 @@
             font-size: 0.85rem;
         }
 
+        .footer-col ul a:hover {
+            color: var(--accent-cyan);
+        }
+
         .footer-bottom {
             text-align: center;
             padding-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 0.8rem;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -301,96 +347,84 @@
     <!-- 1. Top Announcement Bar -->
     <div class="top-bar">
         <div class="top-bar-info">
+            <span><i class="fa-solid fa-graduation-cap"></i> <strong>Web Project Membuat Web Store</strong> - Kelas 11 SMA</span>
             <span><i class="fa-solid fa-shield-halved"></i> Garansi Ikan Hidup 14 Hari</span>
-            <span><i class="fa-solid fa-truck-fast"></i> Pengiriman Khusus Air Laut</span>
         </div>
         <div class="top-bar-links">
-            <a href="tentang.html" target="myIframe">Bantuan</a>
-            <a href="profil.html" target="myIframe">Lacak Pesanan</a>
+            <a href="tentang.html" target="myIframe" title="Lihat informasi proyek dan referensi sumber">Tentang & Referensi</a>
+            <a href="keranjang.html" target="myIframe" title="Buka formulir pemesanan produk">Form Pembelian</a>
         </div>
     </div>
 
     <!-- 2. Header Utama (Logo + Search + Akun/Keranjang) -->
     <header class="main-header">
-        <a href="home.html" target="myIframe" class="logo">
+        <a href="home.html" target="myIframe" class="logo" title="Kembali ke Halaman Beranda AQUA REALM">
             <i class="fa-solid fa-fish-fins"></i> AQUA<span>REALM</span>
         </a>
 
-        <form action="search.html" target="myIframe" class="search-container">
-            <input type="text" name="q" placeholder="Cari ikan air asin (cth: Clownfish, Tang, Angelfish)...">
-            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <form action="katalog.html" target="myIframe" class="search-container" title="Cari spesies ikan laut, koral, atau invertebrata">
+            <input type="text" name="q" placeholder="Cari biota laut (cth: Clownfish, Tang, Hammer Coral, Anemone)...">
+            <button type="submit" title="Klik untuk mencari produk"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
 
         <div class="header-actions">
-            <a href="profil.html" target="myIframe" class="action-item">
+            <a href="profil.html" target="myIframe" class="action-item" title="Lihat informasi akun pengguna Anda">
                 <i class="fa-regular fa-user"></i>
                 <span>Akun Saya</span>
             </a>
-            <a href="keranjang.html" target="myIframe" class="action-item">
+            <a href="keranjang.html" target="myIframe" class="action-item" title="Lihat keranjang belanja & lanjutkan ke form pembelian">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span>Keranjang</span>
             </a>
         </div>
     </header>
 
-    <!-- 3. Navigasi Kategori (Khas LiveAquaria) -->
+    <!-- 3. Navigasi Kategori (Khas LiveAquaria + Scroll Section) -->
     <nav class="nav-bar">
         <ul class="nav-links">
-            <li><a href="home.html" target="myIframe">Beranda</a></li>
+            <li><a href="home.html" target="myIframe" title="Halaman Utama Webstore">Beranda</a></li>
             <li>
-                <a href="katalog.html" target="myIframe">Ikan Laut <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                <a href="katalog.html" target="myIframe" title="Buka seluruh katalog biota laut">Katalog Biota <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></a>
                 <ul class="dropdown-menu">
-                    <li><a href="katalog.html#clownfish" target="myIframe">Clownfish & Anemone</a></li>
-                    <li><a href="katalog.html#tangs" target="myIframe">Tangs & Surgeonfish</a></li>
-                    <li><a href="katalog.html#angelfish" target="myIframe">Angelfish (Dwarf/Large)</a></li>
-                    <li><a href="katalog.html#gobies" target="myIframe">Gobies & Blennies</a></li>
+                    <li><a href="katalog.html#fish" target="myIframe" title="Scroll langsung ke bagian Ikan Air Laut">Ikan Air Laut (Marine Fish)</a></li>
+                    <li><a href="katalog.html#coral" target="myIframe" title="Scroll langsung ke bagian Terumbu Karang">Terumbu Karang (Corals)</a></li>
+                    <li><a href="katalog.html#invert" target="myIframe" title="Scroll langsung ke bagian Invertebrata & Anemon">Invertebrata & Anemon</a></li>
                 </ul>
             </li>
-            <li><a href="katalog.html#terumbu" target="myIframe">Terumbu / Coral</a></li>
-            <li><a href="katalog.html#invertebrata" target="myIframe">Invertebrata Laut</a></li>
-            <li><a href="funfact.html" target="myIframe">Panduan Pemula (Care Guide)</a></li>
-            <li><a href="tentang.html" target="myIframe">Tentang Kami</a></li>
+            <li><a href="katalog.html#fish" target="myIframe" class="scroll-spy-link" data-section="fish" title="Lihat koleksi Ikan Laut">Ikan Laut</a></li>
+            <li><a href="katalog.html#coral" target="myIframe" class="scroll-spy-link" data-section="coral" title="Lihat koleksi Terumbu Karang">Terumbu / Coral</a></li>
+            <li><a href="katalog.html#invert" target="myIframe" class="scroll-spy-link" data-section="invert" title="Lihat koleksi Invertebrata & Anemon">Invertebrata</a></li>
+            <li><a href="funfact.html" target="myIframe" title="Baca fakta unik dan tabel parameter air laut">Fun Fact & Tabel Air</a></li>
+            <li><a href="tentang.html" target="myIframe" title="Baca profil webstore dan daftar referensi sumber">Tentang & Sumber</a></li>
         </ul>
     </nav>
 
     <!-- 4. Area Konten Utama: Sidebar Filter + Iframe Target -->
     <div class="main-container">
-        <!-- Sidebar Filter ala LiveAquaria -->
+        <!-- Sidebar Filter Ala LiveAquaria -->
         <aside class="sidebar">
-            <h3 class="sidebar-title">Filter Biota Laut</h3>
+            <h3 class="sidebar-title">Filter Cepat Biota</h3>
             
             <div class="filter-group">
                 <h4>Tingkat Perawatan (Care Level)</h4>
-                <label><input type="checkbox"> Pemula (Easy)</label>
-                <label><input type="checkbox"> Menengah (Moderate)</label>
-                <label><input type="checkbox"> Ahli (Expert Only)</label>
+                <label title="Filter biota yang mudah dirawat pemula"><input type="radio" name="sideCare" value="easy" onclick="syncFilter('care', 'easy')"> Pemula (Easy)</label>
+                <label title="Filter biota perawatan menengah"><input type="radio" name="sideCare" value="moderate" onclick="syncFilter('care', 'moderate')"> Menengah (Moderate)</label>
+                <label title="Filter biota khusus ahli"><input type="radio" name="sideCare" value="expert" onclick="syncFilter('care', 'expert')"> Ahli (Expert Only)</label>
             </div>
 
             <div class="filter-group">
                 <h4>Kesesuaian Terumbu (Reef Safe)</h4>
-                <label><input type="checkbox"> Safe (Aman)</label>
-                <label><input type="checkbox"> With Caution (Hati-hati)</label>
-                <label><input type="checkbox"> Not Reef Safe</label>
+                <label title="Aman dipelihara bersama terumbu karang"><input type="radio" name="sideReef" value="yes" onclick="syncFilter('reef', 'yes')"> Safe (Aman)</label>
+                <label title="Perlu pengawasan di akuarium karang"><input type="radio" name="sideReef" value="caution" onclick="syncFilter('reef', 'caution')"> With Caution</label>
+                <label title="Tidak disarankan untuk akuarium karang"><input type="radio" name="sideReef" value="no" onclick="syncFilter('reef', 'no')"> Not Reef Safe</label>
             </div>
 
-            <div class="filter-group">
-                <h4>Temperamen</h4>
-                <label><input type="checkbox"> Damai (Peaceful)</label>
-                <label><input type="checkbox"> Semi-Agresif</label>
-                <label><input type="checkbox"> Agresif</label>
-            </div>
-
-            <div class="filter-group">
-                <h4>Ukuran Akuarium</h4>
-                <label><input type="checkbox"> &lt; 100 Liter</label>
-                <label><input type="checkbox"> 100 - 300 Liter</label>
-                <label><input type="checkbox"> &gt; 300 Liter</label>
-            </div>
+            <button type="button" class="btn-reset-filter" onclick="resetSideFilters()" title="Hapus semua filter yang dipilih">Reset Filter</button>
         </aside>
 
         <!-- Area Pengisian Halaman Utama (Iframe) -->
         <main class="content-area">
-            <iframe src="home.html" name="myIframe" class="frame-content"></iframe>
+            <iframe src="home.html" name="myIframe" id="mainIframe" class="frame-content"></iframe>
         </main>
     </div>
 
@@ -399,29 +433,58 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <h4>AQUA REALM</h4>
-                <p style="font-size:0.85rem;">Penyedia biota air laut, terumbu karang, dan peralatan akuarium terpercaya untuk hobi akuarium laut Anda.</p>
+                <p style="font-size:0.85rem;">Webstore edukatif dan direktori penyedia biota air laut, terumbu karang, dan invertebrata untuk hobi akuarium laut Anda.</p>
             </div>
             <div class="footer-col">
-                <h4>Biota Popular</h4>
+                <h4>Kategori Populer</h4>
                 <ul>
-                    <li><a href="katalog.html#clownfish" target="myIframe">Amphiprion Ocellaris</a></li>
-                    <li><a href="katalog.html#tangs" target="myIframe">Yellow Tang</a></li>
-                    <li><a href="katalog.html#angelfish" target="myIframe">Blueface Angelfish</a></li>
+                    <li><a href="katalog.html#fish" target="myIframe" title="Lihat Ikan Air Laut">Ikan Air Laut (<em>Marine Fish</em>)</a></li>
+                    <li><a href="katalog.html#coral" target="myIframe" title="Lihat Terumbu Karang">Terumbu Karang (<em>Corals</em>)</a></li>
+                    <li><a href="katalog.html#invert" target="myIframe" title="Lihat Invertebrata & Anemon">Invertebrata & Anemon</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>Informasi & Edukasi</h4>
+                <h4>Referensi & Navigasi</h4>
                 <ul>
-                    <li><a href="funfact.html" target="myIframe">Panduan Aklimatisasi</a></li>
-                    <li><a href="funfact.html" target="myIframe">Parameter Air Laut</a></li>
-                    <li><a href="tentang.html" target="myIframe">Kebijakan Garansi</a></li>
+                    <li><a href="funfact.html" target="myIframe" title="Lihat Tabel Parameter Air Laut">Tabel Parameter Air Laut</a></li>
+                    <li><a href="keranjang.html" target="myIframe" title="Isi Form Pembelian Produk">Form Pemesanan Produk</a></li>
+                    <li><a href="tentang.html" target="myIframe" title="Lihat Sumber Referensi Website">Sumber & Referensi Proyek</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 AQUA REALM Indonesia. Tugas Proyek Informatika Kelas 11 SMA.</p>
+            <p>&copy; 2026 <strong>AQUA REALM Indonesia</strong>. Dibuat sebagai <strong>Tugas Proyek Informatika Kelas 11 SMA</strong> (Web Project Membuat Web Store).</p>
         </div>
     </footer>
 
+    <script>
+        // Sinkronisasi filter sidebar dengan katalog.html di dalam iframe
+        function syncFilter(type, value) {
+            const iframe = document.getElementById('mainIframe');
+            const targetUrl = `katalog.html?${type}=${value}`;
+            iframe.src = targetUrl;
+        }
+
+        function resetSideFilters() {
+            document.querySelectorAll('.sidebar input[type="radio"]').forEach(r => r.checked = false);
+            document.getElementById('mainIframe').src = 'katalog.html';
+        }
+
+        // Menangkap sinyal scroll dari dalam katalog.html untuk menyalakan indikator navbar
+        window.addEventListener('message', (event) => {
+            if (event.data && event.data.activeSection) {
+                const activeId = event.data.activeSection;
+                document.querySelectorAll('.scroll-spy-link').forEach(link => {
+                    if (link.getAttribute('data-section') === activeId) {
+                        link.style.backgroundColor = '#0077b6';
+                        link.style.borderBottom = '3px solid #00b4d8';
+                    } else {
+                        link.style.backgroundColor = '';
+                        link.style.borderBottom = '';
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
