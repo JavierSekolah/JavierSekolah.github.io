@@ -3,18 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fun Fact - AQUA REALM</title>
+    <title>Fun Fact & Tabel Parameter Air - AQUA REALM</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
-        body { background-color: #f4f6f9; color: #2b2d42; padding: 20px; }
-        .section-header { text-align: center; margin-bottom: 30px; }
-        .section-header h2 { font-size: 1.8rem; color: #0d1b2a; }
+        body { background-color: #f4f6f9; color: #2b2d42; padding: 25px; line-height: 1.6; }
         
+        .section-header { text-align: center; margin-bottom: 25px; }
+        .section-header h2 { font-size: 1.7rem; color: #002b49; }
+        .section-header p { color: #6c757d; font-size: 0.9rem; }
+
+        /* Styling Tabel */
+        .table-container {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            overflow-x: auto;
+        }
+        .table-container h3 {
+            color: #002b49;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            font-size: 0.9rem;
+        }
+        th, td {
+            border: 1px solid #cbd5e1;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #002b49;
+            color: white;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        tr:hover {
+            background-color: #e0f2fe;
+        }
+
+        mark {
+            background-color: #fef08a;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
         .fact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
             gap: 20px;
         }
         .fact-card {
@@ -24,41 +70,91 @@
             border-top: 4px solid #00b4d8;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
-        .fact-card i { font-size: 2rem; color: #00b4d8; margin-bottom: 15px; }
-        .fact-card h3 { font-size: 1.1rem; margin-bottom: 10px; color: #0d1b2a; }
-        .fact-card p { font-size: 0.9rem; color: #4a5568; }
+        .fact-card i { font-size: 1.8rem; color: #0077b6; margin-bottom: 12px; }
+        .fact-card h3 { font-size: 1.05rem; margin-bottom: 8px; color: #002b49; }
+        .fact-card p { font-size: 0.88rem; color: #4a5568; }
     </style>
 </head>
 <body>
 
     <div class="section-header">
-        <h2>Aquatic Knowledge & Fun Facts</h2>
-        <p style="color: #6c757d; font-size: 0.9rem;">Fakta menarik seputar ekosistem dan kebiasaan fauna air</p>
+        <h2>Panduan Parameter Air Laut & Fakta Biota</h2>
+        <p>Referensi ilmiah perawatan akuarium laut (<em>Marine & Reef Tank</em>)</p>
     </div>
 
+    <!-- Tabel Standar Parameter Air Laut -->
+    <div class="table-container">
+        <h3><i class="fa-solid fa-table"></i> Tabel Standar Parameter Air Akuarium Laut</h3>
+        <p style="font-size:0.88rem; color:#4a5568;">Sebelum membeli ikan air asin atau koral, pastikan kondisi air akuarium Anda berada pada rentang ideal berikut (<mark>Wajib diuji sebelum aklimatisasi</mark>):</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Parameter Air</th>
+                    <th>Akuarium Ikan (<em>FOWLR</em>)</th>
+                    <th>Akuarium Terumbu (<em>Reef Tank</em>)</th>
+                    <th>Keterangan & Fungsi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Suhu Air (<em>Temperature</em>)</strong></td>
+                    <td>24°C – 27°C</td>
+                    <td>24°C – 26°C</td>
+                    <td>Menjaga metabolisme ikan dan mencegah stres pada koral.</td>
+                </tr>
+                <tr>
+                    <td><strong>Salinitas (Kadar Garam)</strong></td>
+                    <td>1.020 – 1.025 SG</td>
+                    <td>1.024 – 1.026 SG</td>
+                    <td>Diukur menggunakan alat <em>Refractometer</em>.</td>
+                </tr>
+                <tr>
+                    <td><strong>Derajat Keasaman (pH)</strong></td>
+                    <td>8.1 – 8.4</td>
+                    <td>8.1 – 8.4</td>
+                    <td>Menjaga kestabilan sistem pernapasan biota laut.</td>
+                </tr>
+                <tr>
+                    <td><strong>Alkalinitas (dKH)</strong></td>
+                    <td>8 – 12 dKH</td>
+                    <td>8 – 11 dKH</td>
+                    <td>Penyangga kestabilan pH dan pertumbuhan rangka koral.</td>
+                </tr>
+                <tr>
+                    <td><strong>Kalsium (Ca)</strong></td>
+                    <td>380 – 450 ppm</td>
+                    <td>400 – 450 ppm</td>
+                    <td>Nutrisi utama pembentukan kerangka <em>LPS & SPS Coral</em>.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Fakta Menarik Biota Air Laut -->
     <div class="fact-grid">
         <div class="fact-card">
-            <i class="fa-solid fa-brain"></i>
-            <h3>Memori Ikan Mas</h3>
-            <p>Ikan Mas Koki memiliki ingatan hingga 3 bulan lebih dan dapat dilatih merespons sinyal visual serta warna.</p>
+            <i class="fa-solid fa-shield-cat"></i>
+            <h3>Simbiosis Clownfish & Anemon</h3>
+            <p>Ikan badut (<em>Amphiprion ocellaris</em>) memiliki lapisan lendir khusus yang membuatnya kebal terhadap sengatan tentakel <strong>Bubble Tip Anemone</strong>.</p>
         </div>
 
         <div class="fact-card">
-            <i class="fa-solid fa-wind"></i>
-            <h3>Organ Pernapasan Labirin</h3>
-            <p>Spesies Anabantoid seperti Cupang memiliki organ labirin yang membuat mereka bisa menyerap oksigen langsung dari udara terbuka.</p>
+            <i class="fa-solid fa-scalpel"></i>
+            <h3>Senjata Rahasia Ikan Tang</h3>
+            <p>Keluarga <em>Surgeonfish</em> seperti <strong>Yellow Tang</strong> dan <strong>Blue Tang</strong> memiliki duri tajam seperti pisau bedah di pangkal ekornya untuk pertahanan diri.</p>
         </div>
 
         <div class="fact-card">
-            <i class="fa-solid fa-eye"></i>
-            <h3>Tidur Tanpa Kelopak Mata</h3>
-            <p>Ikan tidak memiliki kelopak mata. Saat beristirahat, mereka menurunkan aktivitas otak tetapi mata tetap terbuka penuh.</p>
+            <i class="fa-solid fa-sun"></i>
+            <h3>Koral Butuh Cahaya untuk Makan</h3>
+            <p>Terumbu karang bersimbiosis dengan alga mikroskopis bernama <em>Zooxanthellae</em> yang berfotosintesis menghasilkan energi dari cahaya lampu akuarium.</p>
         </div>
 
         <div class="fact-card">
-            <i class="fa-solid fa-lightbulb"></i>
-            <h3>Bioluminesensi & Refleksi</h3>
-            <p>Garis menyala pada Neon Tetra memantulkan cahaya untuk navigasi kelompok di air keruh.</p>
+            <i class="fa-solid fa-broom"></i>
+            <h3>Pasukan Pembersih (<em>Cleanup Crew</em>)</h3>
+            <p><strong>Cleaner Shrimp</strong> dan <strong>Turbo Snail</strong> berperan penting memakan parasit pada tubuh ikan serta membersihkan lumut di bebatuan.</p>
         </div>
     </div>
 
