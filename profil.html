@@ -3,61 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil - AQUA REALM</title>
+    <title>Profil & Autentikasi - AQUA REALM</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
         body { background-color: #f4f6f9; color: #2b2d42; padding: 30px 20px; line-height: 1.6; }
-        .profile-container { max-width: 650px; margin: 0 auto; background: white; padding: 35px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; }
-        .profile-avatar { width: 90px; height: 90px; background-color: #e2e8f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 2.5rem; color: #4a5568; }
-        h2 { color: #0d1b2a; margin-bottom: 5px; }
+        
+        .profile-container { 
+            max-width: 600px; 
+            margin: 0 auto; 
+            background: white; 
+            padding: 35px; 
+            border-radius: 12px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+            text-align: center; 
+        }
+        
+        .profile-avatar { 
+            width: 90px; 
+            height: 90px; 
+            background-color: #e2e8f0; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin: 0 auto 15px; 
+            font-size: 2.5rem; 
+            color: #4a5568; 
+        }
+        
+        h2 { color: #002b49; margin-bottom: 5px; }
         p.role { color: #8d99ae; font-size: 0.9rem; margin-bottom: 20px; }
         
-        .profile-info { text-align: left; background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px; font-size: 0.93rem; }
+        .profile-info { 
+            text-align: left; 
+            background: #f8f9fa; 
+            padding: 20px; 
+            border-radius: 8px; 
+            margin-bottom: 20px; 
+            font-size: 0.93rem; 
+        }
         .profile-info p { margin-bottom: 8px; color: #2b2d42; }
-        .profile-info p span { font-weight: 600; color: #0d1b2a; }
+        .profile-info p span { font-weight: 600; color: #002b49; }
 
         mark { background-color: #fef08a; padding: 2px 5px; border-radius: 3px; font-weight: 600; }
 
-        .history-box {
+        .btn-action { 
+            background-color: #0077b6; 
+            color: white; 
+            border: none; 
+            padding: 11px 20px; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            font-weight: 500; 
+            width: 100%; 
+            transition: 0.3s; 
+            font-size: 0.95rem; 
+        }
+        .btn-action:hover { background-color: #002b49; }
+
+        /* Form Login/Daftar yang disembunyikan awalnya */
+        .auth-form-container {
+            display: none;
             text-align: left;
-            margin-bottom: 20px;
             background: #f0fdf4;
             border: 1px solid #bbf7d0;
-            padding: 15px;
+            padding: 20px;
             border-radius: 8px;
+            margin-top: 20px;
         }
-        .history-box h4 { color: #166534; font-size: 0.95rem; margin-bottom: 6px; }
-        .history-box p { font-size: 0.85rem; color: #15803d; }
 
-        .btn-logout { background-color: #0077b6; color: white; border: none; padding: 11px 20px; border-radius: 6px; cursor: pointer; font-weight: 500; width: 100%; transition: 0.3s; font-size: 0.95rem; }
-        .btn-logout:hover { background-color: #002b49; }
+        .auth-form-container h3 {
+            color: #166534;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .form-group { margin-bottom: 12px; }
+        .form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: #166534; margin-bottom: 4px; }
+        .form-group input { 
+            width: 100%; 
+            padding: 8px 12px; 
+            border: 1px solid #86efac; 
+            border-radius: 6px; 
+            font-size: 0.9rem; 
+            outline: none; 
+        }
+
+        .btn-submit-auth {
+            background-color: #16a34a;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+        .btn-submit-auth:hover { background-color: #15803d; }
+
+        .success-msg {
+            display: none;
+            background: #dcfce7;
+            color: #15803d;
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 600;
+            margin-top: 15px;
+        }
     </style>
 </head>
 <body>
 
-    <div class="profile-container" title="Panel Akun Pengguna AQUA REALM">
-        <div class="profile-avatar" title="Avatar Pengguna Tamu">
+    <div class="profile-container" title="Halaman Akun Pengguna">
+        <div class="profile-avatar" title="Avatar Pengguna">
             <i class="fa-solid fa-user"></i>
         </div>
-        <h2>Tamu Pengunjung</h2>
-        <p class="role">Status: <strong>Pembeli / Penghobi Akuatik</strong> (<em>Marine Hobbyist</em>)</p>
+        <h2 id="userName">Tamu Pengunjung</h2>
+        <p class="role">Status: <strong>Pembeli / Penghobi Akuatik</strong></p>
         
-        <div class="profile-info">
-            <p><span>Email Akun:</span> guest_aquarealm@domain.com</p>
-            <p><span>Wilayah Akses:</span> Indonesia</p>
-            <p><span>Level Keanggotaan:</span> <mark>Standar Pengunjung Webstore</mark></p>
-            <p><span>Catatan Proyek:</span> Halaman ini disiapkan untuk melengkapi syarat fungsionalitas akun pada tugas webstore.</p>
+        <div class="profile-info" id="profileInfoBox">
+            <p><span>Email:</span> <span id="userEmail">guest_aquarealm@domain.com</span></p>
+            <p><span>Wilayah:</span> Indonesia</p>
+            <p><span>Akses:</span> <mark>Standar Pengunjung Webstore</mark></p>
         </div>
 
-        <div class="history-box">
-            <h4><i class="fa-solid fa-clock-rotate-left"></i> Informasi Riwayat Pesanan</h4>
-            <p>Belum ada transaksi aktif yang tercatat. Silakan kunjungi menu <a href="katalog.html" title="Buka katalog biota" style="color: #15803d; font-weight:600;">Katalog Biota</a> untuk mulai memilih produk.</p>
+        <!-- Tombol untuk memicu munculnya form -->
+        <button type="button" class="btn-action" id="toggleBtn" onclick="toggleAuthForm()" title="Klik untuk masuk atau mendaftarkan akun mitra">
+            <i class="fa-solid fa-right-to-bracket"></i> Masuk / Daftar Akun Mitra
+        </button>
+
+        <!-- Kotak Form Pendaftaran / Masuk -->
+        <div class="auth-form-container" id="authFormBox">
+            <h3>Formulir Pendaftaran / Masuk Akun</h3>
+            <form onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="inputNama">Nama Lengkap:</label>
+                    <input type="text" id="inputNama" placeholder="Masukkan nama Anda..." required>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail">Alamat Email:</label>
+                    <input type="email" id="inputEmail" placeholder="nama@domain.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="inputPass">Kata Sandi (Password):</label>
+                    <input type="password" id="inputPass" placeholder="Minimal 6 karakter" required>
+                </div>
+                <button type="submit" class="btn-submit-auth">Simpan & Masuk</button>
+            </form>
         </div>
 
-        <button type="button" class="btn-logout" title="Simulasi tombol akses masuk atau pendaftaran akun baru">Masuk / Daftar Akun Mitra Penjual</button>
+        <div class="success-msg" id="successMsg">
+            <i class="fa-solid fa-circle-check"></i> Berhasil masuk sebagai <span id="displayName"></span>! Akun mitra Anda aktif.
+        </div>
     </div>
 
+    <script>
+        function toggleAuthForm() {
+            const formBox = document.getElementById('authFormBox');
+            if (formBox.style.display === 'block') {
+                formBox.style.display = 'none';
+            } else {
+                formBox.style.display = 'block';
+            }
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            const nama = document.getElementById('inputNama').value;
+            const email = document.getElementById('inputEmail').value;
+
+            // Ubah tampilan profil secara dinamis setelah "login/daftar"
+            document.getElementById('userName').textContent = nama;
+            document.getElementById('userEmail').textContent = email;
+            
+            // Sembunyikan form dan tombol, lalu tampilkan pesan sukses
+            document.getElementById('authFormBox').style.display = 'none';
+            document.getElementById('toggleBtn').style.display = 'none';
+            
+            const successBox = document.getElementById('successMsg');
+            document.getElementById('displayName').textContent = nama;
+            successBox.style.display = 'block';
+        }
+    </script>
 </body>
 </html>
