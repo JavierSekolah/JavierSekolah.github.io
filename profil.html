@@ -8,34 +8,55 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
-        body { background-color: #f4f6f9; color: #2b2d42; padding: 30px 20px; }
-        .profile-container { max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; }
-        .profile-avatar { width: 90px; height: 90px; background-color: #e2e8f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2.5rem; color: #4a5568; }
+        body { background-color: #f4f6f9; color: #2b2d42; padding: 30px 20px; line-height: 1.6; }
+        .profile-container { max-width: 650px; margin: 0 auto; background: white; padding: 35px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; }
+        .profile-avatar { width: 90px; height: 90px; background-color: #e2e8f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 2.5rem; color: #4a5568; }
         h2 { color: #0d1b2a; margin-bottom: 5px; }
-        p.role { color: #8d99ae; font-size: 0.9rem; margin-bottom: 25px; }
-        .profile-info { text-align: left; background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
-        .profile-info p { margin-bottom: 8px; font-size: 0.95rem; color: #2b2d42; }
+        p.role { color: #8d99ae; font-size: 0.9rem; margin-bottom: 20px; }
+        
+        .profile-info { text-align: left; background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px; font-size: 0.93rem; }
+        .profile-info p { margin-bottom: 8px; color: #2b2d42; }
         .profile-info p span { font-weight: 600; color: #0d1b2a; }
-        .btn-logout { background-color: #d90429; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 500; width: 100%; transition: 0.3s; }
-        .btn-logout:hover { background-color: #b7031d; }
+
+        mark { background-color: #fef08a; padding: 2px 5px; border-radius: 3px; font-weight: 600; }
+
+        .history-box {
+            text-align: left;
+            margin-bottom: 20px;
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .history-box h4 { color: #166534; font-size: 0.95rem; margin-bottom: 6px; }
+        .history-box p { font-size: 0.85rem; color: #15803d; }
+
+        .btn-logout { background-color: #0077b6; color: white; border: none; padding: 11px 20px; border-radius: 6px; cursor: pointer; font-weight: 500; width: 100%; transition: 0.3s; font-size: 0.95rem; }
+        .btn-logout:hover { background-color: #002b49; }
     </style>
 </head>
 <body>
 
-    <div class="profile-container">
-        <div class="profile-avatar">
+    <div class="profile-container" title="Panel Akun Pengguna AQUA REALM">
+        <div class="profile-avatar" title="Avatar Pengguna Tamu">
             <i class="fa-solid fa-user"></i>
         </div>
         <h2>Tamu Pengunjung</h2>
-        <p class="role">Status: Pembeli / Penghobi Akuatik</p>
+        <p class="role">Status: <strong>Pembeli / Penghobi Akuatik</strong> (<em>Marine Hobbyist</em>)</p>
         
         <div class="profile-info">
-            <p><span>Email:</span> guest_aquarealm@domain.com</p>
-            <p><span>Lokasi:</span> Indonesia</p>
-            <p><span>Akses Akun:</span> Standar Pengunjung Webstore</p>
+            <p><span>Email Akun:</span> guest_aquarealm@domain.com</p>
+            <p><span>Wilayah Akses:</span> Indonesia</p>
+            <p><span>Level Keanggotaan:</span> <mark>Standar Pengunjung Webstore</mark></p>
+            <p><span>Catatan Proyek:</span> Halaman ini disiapkan untuk melengkapi syarat fungsionalitas akun pada tugas webstore.</p>
         </div>
 
-        <button type="button" class="btn-logout">Masuk / Daftar Akun Mitra</button>
+        <div class="history-box">
+            <h4><i class="fa-solid fa-clock-rotate-left"></i> Informasi Riwayat Pesanan</h4>
+            <p>Belum ada transaksi aktif yang tercatat. Silakan kunjungi menu <a href="katalog.html" title="Buka katalog biota" style="color: #15803d; font-weight:600;">Katalog Biota</a> untuk mulai memilih produk.</p>
+        </div>
+
+        <button type="button" class="btn-logout" title="Simulasi tombol akses masuk atau pendaftaran akun baru">Masuk / Daftar Akun Mitra Penjual</button>
     </div>
 
 </body>
