@@ -3,40 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tentang Kami - AQUA REALM</title>
+    <title>Tentang & Referensi Sumber - AQUA REALM</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
         body { background-color: #f4f6f9; color: #2b2d42; padding: 30px 20px; }
-        .about-container { max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        h2 { color: #0d1b2a; margin-bottom: 20px; font-size: 1.8rem; text-align: center; }
-        p { color: #4a5568; margin-bottom: 15px; line-height: 1.8; text-align: justify; }
+        .about-container { max-width: 850px; margin: 0 auto; background: white; padding: 35px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h2 { color: #002b49; margin-bottom: 18px; font-size: 1.7rem; text-align: center; }
+        h3 { color: #002b49; margin: 25px 0 10px; font-size: 1.2rem; border-bottom: 2px solid #00b4d8; padding-bottom: 5px; }
+        p { color: #4a5568; margin-bottom: 14px; line-height: 1.8; text-align: justify; font-size: 0.94rem; }
+        
+        mark { background-color: #fef08a; padding: 2px 6px; border-radius: 4px; font-weight: 600; }
+
+        .ref-list {
+            margin-left: 20px;
+            color: #2b2d42;
+            font-size: 0.92rem;
+            line-height: 1.8;
+        }
+        .ref-list a {
+            color: #0077b6;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .ref-list a:hover {
+            text-decoration: underline;
+        }
+
         .features-list { margin-top: 25px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
-        .feature-item { background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #00b4d8; }
-        .feature-item h4 { color: #0d1b2a; margin-bottom: 5px; font-size: 1rem; }
-        .feature-item p { font-size: 0.85rem; margin-bottom: 0; }
+        .feature-item { background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #0077b6; }
+        .feature-item h4 { color: #002b49; margin-bottom: 5px; font-size: 1rem; }
+        .feature-item p { font-size: 0.85rem; margin-bottom: 0; text-align: left; }
     </style>
 </head>
 <body>
 
     <div class="about-container">
-        <h2>Tentang AQUA REALM</h2>
+        <h2>Tentang Proyek Webstore AQUA REALM</h2>
         <p>
-            <strong>AQUA REALM</strong> adalah proyek webstore edukatif dan direktori digital yang dirancang khusus untuk mendukung para penjual ikan hias independen di seluruh Indonesia agar produk mereka dapat dijangkau oleh lebih banyak penghobi akuatik.
+            <strong>AQUA REALM</strong> adalah sebuah <mark>Web Project Membuat Web Store</mark> yang disusun untuk memenuhi tugas mata pelajaran Informatika <strong>Kelas 11 SMA</strong>. Website ini dirancang sebagai etalase digital dan direktori interaktif bagi penghobi ekosistem akuarium air asin (<em>Marine Fish & Reef Aquarium</em>).
         </p>
         <p>
-            Perlu dicatat bahwa platform ini berfungsi sebagai <strong>agregator/penghubung pihak ketiga</strong>. Kami tidak menyimpan stok ikan secara langsung di satu tempat, melainkan menyediakan etalase kurasi berkualitas tinggi yang mengarahkan pembeli langsung ke toko resmi mitra penjual di marketplace terpercaya.
+            Platform ini mengadopsi tata letak e-commerce akuatik modern yang memudahkan pengguna mencari spesies ikan laut, terumbu karang, hingga invertebrata berdasarkan tingkat kesulitan perawatan (<em>Care Level</em>) dan keamanan terhadap koral (<em>Reef Safe</em>).
         </p>
+
+        <h3><i class="fa-solid fa-book"></i> Referensi & Sumber Data</h3>
+        <p>Dalam pembuatan desain antarmuka, struktur katalog biota laut, dan data ilmiah spesies pada webstore ini, penulis menggunakan referensi dari sumber-sumber berikut:</p>
+        <ul class="ref-list">
+            <li><strong>Referensi Desain & Katalog Ikan Laut:</strong> <a href="https://www.liveaquaria.com/pages/marine-fish" target="_blank" title="Kunjungi situs referensi LiveAquaria Marine Fish">LiveAquaria - Marine Fish Section</a> (Acuan struktur sidebar filter, pengelompokan <em>Care Level</em>, dan status <em>Reef Safe</em>).</li>
+            <li><strong>Referensi Terumbu Karang & Anemon:</strong> <a href="https://www.aquamarindo.com/corals/anemones" target="_blank" title="Kunjungi situs referensi AquaMarindo">AquaMarindo - Corals & Anemones</a> (Acuan variasi spesies anemon dan terumbu karang lokal Indonesia).</li>
+            <li><strong>Sumber Aset Gambar:</strong> <a href="https://unsplash.com" target="_blank" title="Kunjungi sumber foto bebas hak cipta Unsplash">Unsplash Photography</a> (Dokumentasi foto ikan laut dan terumbu karang).</li>
+            <li><strong>Ikon & Tipografi:</strong> <a href="https://fontawesome.com" target="_blank" title="Sumber ikon antarmuka">FontAwesome 6</a> dan <a href="https://fonts.google.com" target="_blank" title="Sumber font Google">Google Fonts (Poppins & Playfair Display)</a>.</li>
+        </ul>
 
         <div class="features-list">
             <div class="feature-item">
-                <h4><i class="fa-solid fa-shield-halved"></i> Mitra Terverifikasi</h4>
-                <p>Semua penjual dalam direktori kami telah melalui kurasi standar kesehatan hewan.</p>
+                <h4><i class="fa-solid fa-shield-halved"></i> Kurasi Kualitas</h4>
+                <p>Menampilkan spesifikasi parameter perawatan yang jelas untuk mencegah kematian biota.</p>
             </div>
             <div class="feature-item">
-                <h4><i class="fa-solid fa-graduation-cap"></i> Edukasi Akuatik</h4>
-                <p>Menyediakan informasi dan fakta ilmiah seputar pemeliharaan fauna air.</p>
+                <h4><i class="fa-solid fa-graduation-cap"></i> Nilai Edukasi</h4>
+                <p>Menggabungkan fungsi toko online dengan tabel edukasi parameter air laut.</p>
             </div>
         </div>
     </div>
