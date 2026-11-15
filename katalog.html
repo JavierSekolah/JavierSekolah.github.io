@@ -971,6 +971,20 @@
                 }
             }
         });
+
+        // Menangkap parameter filter dari sidebar index.html (contoh: katalog.html?care=easy)
+const careParam = urlParams.get('care');
+if (careParam) {
+    document.getElementById('filterCare').value = careParam;
+    applyFilters();
+}
+
+const reefParam = urlParams.get('reef');
+if (reefParam) {
+    document.getElementById('filterReef').value = reefParam;
+    applyFilters();
+}
+ 
     </script>
 </body>
 </html>
