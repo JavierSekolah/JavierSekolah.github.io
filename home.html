@@ -4,42 +4,174 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - AQUA REALM</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
-        body { background-color: #f4f6f9; color: #2b2d42; line-height: 1.6; }
+        body { background-color: #f4f6f9; color: #2b2d42; line-height: 1.7; padding: 20px; }
+        
         .hero {
-            background: linear-gradient(rgba(13, 27, 42, 0.75), rgba(13, 27, 42, 0.75)), 
+            background: linear-gradient(rgba(0, 43, 73, 0.8), rgba(0, 43, 73, 0.8)), 
                         url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1500&q=80') center/cover;
-            height: 450px;
+            min-height: 360px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             color: white;
             text-align: center;
-            padding: 0 20px;
+            padding: 30px 20px;
             border-radius: 12px;
+            margin-bottom: 25px;
         }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 15px; }
-        .hero p { font-size: 1.1rem; max-width: 600px; margin-bottom: 25px; color: #e0e1dd; }
+        .project-badge {
+            background-color: #00b4d8;
+            color: #002b49;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 2.3rem; margin-bottom: 12px; }
+        .hero p { font-size: 1rem; max-width: 680px; margin-bottom: 22px; color: #e0e1dd; }
+        
+        .btn-group { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
         .btn-hero {
             background-color: #00b4d8;
             color: white;
-            padding: 12px 30px;
+            padding: 11px 26px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
             transition: 0.3s;
+            font-size: 0.9rem;
         }
         .btn-hero:hover { background-color: #0077b6; }
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid #fff;
+            color: white;
+            padding: 9px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+        .btn-outline:hover { background-color: #fff; color: #002b49; }
+
+        .info-box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            margin-bottom: 25px;
+        }
+        .info-box h2 { color: #002b49; margin-bottom: 12px; font-size: 1.4rem; }
+        .info-box p { margin-bottom: 14px; color: #4a5568; font-size: 0.95rem; }
+        
+        mark {
+            background-color: #fef08a;
+            color: #002b49;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .highlight-list {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            color: #2b2d42;
+            font-size: 0.93rem;
+        }
+        .highlight-list li {
+            margin-bottom: 8px;
+        }
+
+        .preview-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .p-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            background: #f8fafc;
+        }
+        .p-card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+        }
+        .p-card-body {
+            padding: 12px;
+        }
+        .p-card-body h4 { color: #002b49; font-size: 1rem; margin-bottom: 4px; }
+        .p-card-body a { color: #0077b6; font-size: 0.85rem; font-weight: 600; text-decoration: none; }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <h1>Koleksi Ikan Hias Premium</h1>
-        <p>Platform direktori resmi penyedia spesies akuatik kualitas ekspor yang menghubungkan langsung pembeli dengan para penjual terkurasi.</p>
-        <a href="katalog.html" class="btn-hero">Lihat Katalog Resmi</a>
+
+    <div class="hero" title="Banner Utama Webstore AQUA REALM">
+        <span class="project-badge"><i class="fa-solid fa-code"></i> WEB PROJECT MEMBUAT WEB STORE - KELAS 11 SMA</span>
+        <h1>Eksplorasi Biota Air Asin & Terumbu Karang</h1>
+        <p>Selamat datang di <strong>AQUA REALM</strong>, platform webstore edukatif untuk penghobi akuarium air laut (<em>Marine & Reef Aquarium</em>) di Indonesia.</p>
+        <div class="btn-group">
+            <a href="katalog.html" class="btn-hero" title="Klik untuk melihat 30+ katalog biota laut">Jelajahi Katalog Biota</a>
+            <a href="keranjang.html" class="btn-outline" title="Klik untuk mengisi formulir pemesanan">Form Pembelian</a>
+        </div>
     </div>
+
+    <div class="info-box">
+        <h2>Mengapa Memilih Biota Laut di AQUA REALM?</h2>
+        <p>
+            Website ini dikembangkan sebagai <strong>Proyek Informatika Kelas 11 SMA</strong> dengan mengadaptasi standar etalase e-commerce akuatik internasional. Setiap biota laut yang ditampilkan telah dikurasi berdasarkan tingkat kesulitan perawatan (<em>Care Level</em>) serta kecocokannya dengan ekosistem terumbu karang (<em>Reef Safe</em>).
+        </p>
+        <p>
+            Khusus pemesanan minggu ini, nikmati fasilitas <mark>Garansi Ikan Hidup 14 Hari (Stay Alive Guarantee)</mark> serta <mark>Gratis Konsultasi Parameter Air Laut</mark> bagi pemula!
+        </p>
+
+        <h3 style="color:#002b49; font-size:1.1rem; margin: 15px 0 8px;">Keunggulan Layanan Kami:</h3>
+        <ul class="highlight-list">
+            <li><strong>Katalog Terstruktur:</strong> Tersedia lebih dari 30 spesies mulai dari <em>Ocellaris Clownfish</em>, <em>Yellow Tang</em>, hingga <em>Rose Bubble Tip Anemone</em>.</li>
+            <li><strong>Filter Interaktif:</strong> Memudahkan penghobi pemula memilih ikan yang damai (<em>Peaceful</em>) dan aman bagi koral.</li>
+            <li><strong>Edukasi Lengkap:</strong> Dilengkapi panduan aklimatisasi dan tabel standar kualitas air laut.</li>
+        </ul>
+
+        <div class="preview-cards">
+            <div class="p-card">
+                <a href="katalog.html#fish" title="Klik gambar untuk melihat kategori Ikan Air Laut">
+                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=500&q=80" alt="Ikan Air Laut" title="Koleksi Ikan Air Laut (Marine Fish)">
+                </a>
+                <div class="p-card-body">
+                    <h4>Ikan Air Laut</h4>
+                    <a href="katalog.html#fish" title="Buka katalog Ikan Air Laut">Lihat 10+ Spesies &rarr;</a>
+                </div>
+            </div>
+            <div class="p-card">
+                <a href="katalog.html#coral" title="Klik gambar untuk melihat kategori Terumbu Karang">
+                    <img src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=500&q=80" alt="Terumbu Karang" title="Koleksi Terumbu Karang (LPS, SPS, Soft Coral)">
+                </a>
+                <div class="p-card-body">
+                    <h4>Terumbu Karang</h4>
+                    <a href="katalog.html#coral" title="Buka katalog Terumbu Karang">Lihat 10+ Spesies &rarr;</a>
+                </div>
+            </div>
+            <div class="p-card">
+                <a href="katalog.html#invert" title="Klik gambar untuk melihat kategori Invertebrata & Anemon">
+                    <img src="https://images.unsplash.com/photo-1535591273668-578e31182c4f?w=500&q=80" alt="Invertebrata & Anemon" title="Koleksi Invertebrata & Anemon Laut">
+                </a>
+                <div class="p-card-body">
+                    <h4>Invertebrata & Anemon</h4>
+                    <a href="katalog.html#invert" title="Buka katalog Invertebrata & Anemon">Lihat 10+ Spesies &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
