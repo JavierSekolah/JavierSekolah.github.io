@@ -3,30 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keranjang - AQUA REALM</title>
+    <title>Form Pembelian & Keranjang - AQUA REALM</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
-        body { background-color: #f4f6f9; color: #2b2d42; padding: 30px 20px; }
-        .cart-container { max-width: 700px; margin: 0 auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; }
-        h2 { color: #0d1b2a; margin-bottom: 20px; font-size: 1.8rem; }
-        .cart-empty { padding: 30px 0; color: #8d99ae; }
-        .cart-empty i { font-size: 3rem; margin-bottom: 15px; color: #ced4da; }
-        .btn-shop { display: inline-block; background-color: #00b4d8; color: white; padding: 10px 25px; border-radius: 30px; text-decoration: none; font-weight: 600; margin-top: 15px; transition: 0.3s; }
-        .btn-shop:hover { background-color: #0077b6; }
+        body { background-color: #f4f6f9; color: #2b2d42; padding: 25px 20px; }
+        
+        .checkout-container {
+            max-width: 750px;
+            margin: 0 auto;
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        h2 { color: #002b49; margin-bottom: 8px; font-size: 1.6rem; text-align: center; }
+        .subtitle { text-align: center; color: #6c757d; font-size: 0.9rem; margin-bottom: 25px; }
+
+        .form-group { margin-bottom: 16px; }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+            color: #002b49;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            outline: none;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: #0077b6;
+        }
+
+        .row-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: #0077b6;
+            color: white;
+            border: none;
+            padding: 13px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+        .btn-submit:hover {
+            background-color: #002b49;
+        }
+
+        .success-alert {
+            display: none;
+            background-color: #dcfce7;
+            border: 1px solid #22c55e;
+            color: #15803d;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .row-2 { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="cart-container">
-        <h2>Keranjang Belanja Anda</h2>
-        <div class="cart-empty">
-            <i class="fa-solid fa-cart-shopping"></i>
-            <p>Keranjang Anda masih kosong atau Anda belum memilih produk dari mitra penjual.</p>
-            <a href="katalog.html" class="btn-shop">Jelajahi Katalog Ikan</a>
+    <div class="checkout-container">
+        <h2><i class="fa-solid fa-cart-shopping"></i> Formulir Pembelian Biota Laut</h2>
+        <p class="subtitle">Silakan lengkapi form pemesanan di bawah ini untuk memproses pengiriman biota dengan oksigen khusus.</p>
+
+        <form id="orderForm" onsubmit="submitOrder(event)">
+            <div class="form-group">
+                <label for="produk">Pilih Biota Laut / Produk:</label>
+                <select id="produk" required>
+                    <option value="">-- Pilih Spesies dari Katalog --</option>
+                    <option value="Ocellaris Clownfish (Rp 85.000)">Ocellaris Clownfish - Rp 85.000</option>
+                    <option value="Yellow Tang Hawaii (Rp 650.000)">Yellow Tang Hawaii - Rp 650.000</option>
+                    <option value="Pacific Blue Tang (Rp 320.000)">Pacific Blue Tang (Dory) - Rp 320.000</option>
+                    <option value="Green Hammer Coral (Rp 350.000)">Green Hammer Coral (LPS) - Rp 350.000</option>
+                    <option value="Indo Gold Torch Coral (Rp 850.000)">Indo Gold Torch Coral - Rp 850.000</option>
+                    <option value="Rose Bubble Tip Anemone (Rp 380.000)">Rose Bubble Tip Anemone - Rp 380.000</option>
+                    <option value="Skunk Cleaner Shrimp (Rp 75.000)">Skunk Cleaner Shrimp - Rp 75.000</option>
+                </select>
+            </div>
+
+            <div class="row-2">
+                <div class="form-group">
+                    <label for="jumlah">Jumlah Ekor / Frag:</label>
+                    <input type="number" id="jumlah" min="1" max="20" value="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="kurir">Opsi Pengiriman Biota Hidup:</label>
+                    <select id="kurir" required>
+                        <option value="Instant Courier (Oksigen + Box Styrofoam)">Instant Courier (Oksigen + Styrofoam)</option>
+                        <option value="Kargo Kereta Api / Pesawat (1 Hari Sampai)">Kargo Kilat 1 Hari Sampai (Luar Kota)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row-2">
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap Pembeli:</label>
+                    <input type="text" id="nama" placeholder="Masukkan nama lengkap Anda" required>
+                </div>
+                <div class="form-group">
+                    <label for="telepon">Nomor WhatsApp Aktif:</label>
+                    <input type="tel" id="telepon" placeholder="Contoh: 081234567890" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="alamat">Alamat Lengkap Pengiriman:</label>
+                <textarea id="alamat" rows="3" placeholder="Masukkan jalan, nomor rumah, kecamatan, dan kota tujuan..." required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="pembayaran">Metode Pembayaran:</label>
+                <select id="pembayaran" required>
+                    <option value="Transfer Bank (BCA / Mandiri)">Transfer Bank (BCA / Mandiri)</option>
+                    <option value="QRIS / E-Wallet (GoPay, OVO, Dana)">QRIS / E-Wallet (GoPay, OVO, Dana)</option>
+                    <option value="Rekber Marketplace Mitra">Rekber Marketplace Mitra</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-submit" title="Klik untuk mengirimkan pesanan Anda"><i class="fa-solid fa-paper-plane"></i> Buat Pesanan Sekarang</button>
+        </form>
+
+        <div class="success-alert" id="successBox">
+            <i class="fa-solid fa-circle-check" style="font-size: 2rem; margin-bottom: 8px;"></i>
+            <h4>Pesanan Berhasil Dibuat!</h4>
+            <p id="orderSummary" style="font-size: 0.9rem; margin-top: 6px;"></p>
         </div>
     </div>
 
+    <script>
+        function submitOrder(e) {
+            e.preventDefault();
+            const nama = document.getElementById('nama').value;
+            const produk = document.getElementById('produk').value;
+            const jumlah = document.getElementById('jumlah').value;
+            const kurir = document.getElementById('kurir').value;
+
+            document.getElementById('orderSummary').innerHTML = 
+                `Terima kasih <strong>${nama}</strong>! Pesanan Anda untuk <strong>${jumlah}x ${produk}</strong> dengan pengiriman <em>${kurir}</em> telah dicatat oleh sistem proyek AQUA REALM.`;
+            
+            document.getElementById('successBox').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
