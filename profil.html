@@ -3,191 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil & Autentikasi - AQUA REALM</title>
+    <title>Profil - AQUA REALM</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
-        body { background-color: #f4f6f9; color: #2b2d42; padding: 30px 20px; line-height: 1.6; }
+        body { background-color: #f4f6f9; color: #2b2d42; padding: 20px; }
         
         .profile-container { 
-            max-width: 600px; 
+            max-width: 550px; 
             margin: 0 auto; 
             background: white; 
-            padding: 35px; 
+            padding: 30px; 
             border-radius: 12px; 
             box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
             text-align: center; 
         }
         
         .profile-avatar { 
-            width: 90px; 
-            height: 90px; 
+            width: 80px; 
+            height: 80px; 
             background-color: #e2e8f0; 
             border-radius: 50%; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
             margin: 0 auto 15px; 
-            font-size: 2.5rem; 
+            font-size: 2rem; 
             color: #4a5568; 
         }
         
-        h2 { color: #002b49; margin-bottom: 5px; }
-        p.role { color: #8d99ae; font-size: 0.9rem; margin-bottom: 20px; }
+        h2 { color: #0d1b2a; margin-bottom: 5px; font-size: 1.5rem; }
+        p.role { color: #8d99ae; font-size: 0.85rem; margin-bottom: 20px; }
         
         .profile-info { 
             text-align: left; 
             background: #f8f9fa; 
-            padding: 20px; 
+            padding: 15px; 
             border-radius: 8px; 
             margin-bottom: 20px; 
-            font-size: 0.93rem; 
+            font-size: 0.9rem; 
         }
-        .profile-info p { margin-bottom: 8px; color: #2b2d42; }
-        .profile-info p span { font-weight: 600; color: #002b49; }
+        .profile-info p { margin-bottom: 6px; color: #2b2d42; }
+        .profile-info p span { font-weight: 600; color: #0d1b2a; }
 
-        mark { background-color: #fef08a; padding: 2px 5px; border-radius: 3px; font-weight: 600; }
-
+        mark { background-color: #fef08a; padding: 2px 4px; border-radius: 3px; font-weight: 600; }
+        
         .btn-action { 
             background-color: #0077b6; 
             color: white; 
             border: none; 
-            padding: 11px 20px; 
+            padding: 10px 18px; 
             border-radius: 6px; 
             cursor: pointer; 
             font-weight: 500; 
             width: 100%; 
             transition: 0.3s; 
-            font-size: 0.95rem; 
+            font-size: 0.9rem; 
         }
         .btn-action:hover { background-color: #002b49; }
 
-        /* Form Login/Daftar yang disembunyikan awalnya */
-        .auth-form-container {
+        /* Kotak Form Pendaftaran */
+        .auth-form {
             display: none;
+            margin-top: 20px;
             text-align: left;
             background: #f0fdf4;
             border: 1px solid #bbf7d0;
-            padding: 20px;
+            padding: 15px;
             border-radius: 8px;
-            margin-top: 20px;
         }
-
-        .auth-form-container h3 {
-            color: #166534;
-            font-size: 1.1rem;
-            margin-bottom: 12px;
-            text-align: center;
-        }
-
-        .form-group { margin-bottom: 12px; }
-        .form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: #166534; margin-bottom: 4px; }
-        .form-group input { 
+        .auth-form h3 { color: #166534; font-size: 1rem; margin-bottom: 10px; text-align: center; }
+        .form-group { margin-bottom: 10px; }
+        .form-group label { display: block; font-size: 0.8rem; font-weight: 600; color: #166534; margin-bottom: 3px; }
+        .form-group input { width: 100%; padding: 8px; border: 1px solid #86efac; border-radius: 4px; font-size: 0.85rem; outline: none; }
+        
+        .btn-submit { 
+            background-color: #16a34a; 
+            color: white; 
+            border: none; 
+            padding: 8px; 
             width: 100%; 
-            padding: 8px 12px; 
-            border: 1px solid #86efac; 
-            border-radius: 6px; 
-            font-size: 0.9rem; 
-            outline: none; 
+            border-radius: 4px; 
+            font-weight: 600; 
+            cursor: pointer; 
+            margin-top: 5px; 
         }
-
-        .btn-submit-auth {
-            background-color: #16a34a;
-            color: white;
-            border: none;
-            padding: 10px;
-            width: 100%;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 5px;
-        }
-        .btn-submit-auth:hover { background-color: #15803d; }
-
-        .success-msg {
+        .btn-submit:hover { background-color: #15803d; }
+        
+        .success-box {
             display: none;
+            margin-top: 15px;
             background: #dcfce7;
             color: #15803d;
-            padding: 12px;
+            padding: 10px;
             border-radius: 6px;
-            text-align: center;
+            font-size: 0.9rem;
             font-weight: 600;
-            margin-top: 15px;
         }
     </style>
 </head>
 <body>
 
-    <div class="profile-container" title="Halaman Akun Pengguna">
-        <div class="profile-avatar" title="Avatar Pengguna">
+    <div class="profile-container">
+        <div class="profile-avatar">
             <i class="fa-solid fa-user"></i>
         </div>
-        <h2 id="userName">Tamu Pengunjung</h2>
+        <h2 id="nameDisplay">Tamu Pengunjung</h2>
         <p class="role">Status: <strong>Pembeli / Penghobi Akuatik</strong></p>
         
-        <div class="profile-info" id="profileInfoBox">
-            <p><span>Email:</span> <span id="userEmail">guest_aquarealm@domain.com</span></p>
+        <div class="profile-info" id="infoBox">
+            <p><span>Email:</span> <span id="emailDisplay">guest_aquarealm@domain.com</span></p>
             <p><span>Wilayah:</span> Indonesia</p>
-            <p><span>Akses:</span> <mark>Standar Pengunjung Webstore</mark></p>
+            <p><span>Akses Akun:</span> <mark>Standar Pengunjung</mark></p>
         </div>
 
-        <!-- Tombol untuk memicu munculnya form -->
-        <button type="button" class="btn-action" id="toggleBtn" onclick="toggleAuthForm()" title="Klik untuk masuk atau mendaftarkan akun mitra">
+        <!-- Tombol Utama Pemicu -->
+        <button type="button" class="btn-action" id="mainBtn" onclick="toggleForm()">
             <i class="fa-solid fa-right-to-bracket"></i> Masuk / Daftar Akun Mitra
         </button>
 
-        <!-- Kotak Form Pendaftaran / Masuk -->
-        <div class="auth-form-container" id="authFormBox">
-            <h3>Formulir Pendaftaran / Masuk Akun</h3>
-            <form onsubmit="handleLogin(event)">
+        <!-- Form Tersembunyi yang akan muncul saat tombol diklik -->
+        <div class="auth-form" id="formContainer">
+            <h3>Formulir Pendaftaran Akun</h3>
+            <form onsubmit="processLogin(event)">
                 <div class="form-group">
-                    <label for="inputNama">Nama Lengkap:</label>
-                    <input type="text" id="inputNama" placeholder="Masukkan nama Anda..." required>
+                    <label>Nama Lengkap:</label>
+                    <input type="text" id="regName" placeholder="Masukkan nama Anda" required>
                 </div>
                 <div class="form-group">
-                    <label for="inputEmail">Alamat Email:</label>
-                    <input type="email" id="inputEmail" placeholder="nama@domain.com" required>
+                    <label>Alamat Email:</label>
+                    <input type="email" id="regEmail" placeholder="nama@email.com" required>
                 </div>
                 <div class="form-group">
-                    <label for="inputPass">Kata Sandi (Password):</label>
-                    <input type="password" id="inputPass" placeholder="Minimal 6 karakter" required>
+                    <label>Kata Sandi:</label>
+                    <input type="password" id="regPass" placeholder="Minimal 6 karakter" required>
                 </div>
-                <button type="submit" class="btn-submit-auth">Simpan & Masuk</button>
+                <button type="submit" class="btn-submit">Simpan & Daftar</button>
             </form>
         </div>
 
-        <div class="success-msg" id="successMsg">
-            <i class="fa-solid fa-circle-check"></i> Berhasil masuk sebagai <span id="displayName"></span>! Akun mitra Anda aktif.
+        <!-- Pesan Sukses Setelah Daftar -->
+        <div class="success-box" id="successBox">
+            <i class="fa-solid fa-circle-check"></i> Selamat, <span id="savedName"></span> berhasil terdaftar sebagai Mitra!
         </div>
     </div>
 
     <script>
-        function toggleAuthForm() {
-            const formBox = document.getElementById('authFormBox');
-            if (formBox.style.display === 'block') {
-                formBox.style.display = 'none';
+        function toggleForm() {
+            const box = document.getElementById('formContainer');
+            if (box.style.display === 'block') {
+                box.style.display = 'none';
             } else {
-                formBox.style.display = 'block';
+                box.style.display = 'block';
             }
         }
 
-        function handleLogin(event) {
-            event.preventDefault();
-            const nama = document.getElementById('inputNama').value;
-            const email = document.getElementById('inputEmail').value;
+        function processLogin(e) {
+            e.preventDefault();
+            const name = document.getElementById('regName').value;
+            const email = document.getElementById('regEmail').value;
 
-            // Ubah tampilan profil secara dinamis setelah "login/daftar"
-            document.getElementById('userName').textContent = nama;
-            document.getElementById('userEmail').textContent = email;
+            // Memperbarui informasi di layar
+            document.getElementById('nameDisplay').textContent = name;
+            document.getElementById('emailDisplay').textContent = email;
+
+            // Menyembunyikan form dan tombol utama, lalu memunculkan kotak sukses
+            document.getElementById('formContainer').style.display = 'none';
+            document.getElementById('mainBtn').style.display = 'none';
             
-            // Sembunyikan form dan tombol, lalu tampilkan pesan sukses
-            document.getElementById('authFormBox').style.display = 'none';
-            document.getElementById('toggleBtn').style.display = 'none';
-            
-            const successBox = document.getElementById('successMsg');
-            document.getElementById('displayName').textContent = nama;
-            successBox.style.display = 'block';
+            const success = document.getElementById('successBox');
+            document.getElementById('savedName').textContent = name;
+            success.style.display = 'block';
         }
     </script>
 </body>
